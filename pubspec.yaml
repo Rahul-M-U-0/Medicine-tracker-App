@@ -35,6 +35,12 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   dropdown_search: ^5.0.6
+  gap: ^3.0.1
+  animated_text_kit: ^4.2.2
+  circular_bottom_navigation: ^2.3.0
+  font_awesome_flutter: ^10.7.0
+  flutter_timeline_calendar: ^1.0.9
+  time_pickerr: ^1.0.6
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicine_app/components/input-fields.dart';
-import 'package:medicine_app/pages/profile_page.dart';
+import 'package:medicine_app/pages/Bottom%20navigaton/profile_page.dart';
 
 class ChangePasswordPage extends StatelessWidget {
   ChangePasswordPage({super.key});

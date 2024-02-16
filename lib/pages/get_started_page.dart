@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicine_app/components/page_view_item.dart';
+import 'package:medicine_app/pages/loginpage.dart';
 
 class GetStartedPage extends StatefulWidget {
   const GetStartedPage({super.key});
@@ -100,7 +101,13 @@ class _GetStartedPageState extends State<GetStartedPage> {
                   width: 200,
                   child: ElevatedButton(
                     onPressed: () {
-                      if (_activePage == pages.length - 1) {}
+                      if (_activePage == pages.length - 1) {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => LoginPage(),
+                          ),
+                        );
+                      }
                       _pageController.nextPage(
                         duration: const Duration(milliseconds: 800),
                         curve: Curves.easeInOutQuart,

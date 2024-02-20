@@ -1,11 +1,9 @@
 import 'package:circular_bottom_navigation/tab_item.dart';
 import 'package:flutter/material.dart';
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
-
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:medicine_app/pages/Bottom%20navigaton/Medication/demomedicineaddpage.dart';
-import 'package:medicine_app/pages/Bottom%20navigaton/home.dart';
-import 'package:medicine_app/pages/loginpage.dart';
+import 'package:medicine_app/pages/Bottom%20navigaton/home_page.dart';
+import 'package:medicine_app/pages/Bottom%20navigaton/medication.dart';
 import 'package:medicine_app/pages/Bottom%20navigaton/profile_page.dart';
 
 class BottomNavi extends StatefulWidget {
@@ -49,8 +47,8 @@ class _BottomNaviState extends State<BottomNavi> {
 
   late CircularBottomNavigationController _navigationController;
   final List<Widget> _pages = [
-    Home(),
-    AddMedicine(decription: "Add Medication"),
+    const Home(),
+    Medication(),
     const ProfilePage(),
   ];
   @override
@@ -88,7 +86,6 @@ class _BottomNaviState extends State<BottomNavi> {
       selectedCallback: (int? selectedPos) {
         setState(() {
           this.selectedPos = selectedPos ?? 0;
-          print(_navigationController.value);
         });
       },
     );

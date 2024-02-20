@@ -6,6 +6,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Scaffold(
       body: SizedBox(
         height: double.infinity,
@@ -14,12 +15,12 @@ class Home extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              height: 310,
-              color: Color(0xff04516f),
+              height: screenSize.height * 0.5,
+              color: const Color(0xff04516f),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(top: 70, left: 20),
                     child: Row(
                       children: [
@@ -54,35 +55,34 @@ class Home extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        height: 155,
-                        width: 225,
-                        color: const Color.fromARGB(0, 255, 193, 7),
-                      ),
-                      Container(
-                        height: 165,
-                        width: 167,
-                        decoration: BoxDecoration(
-                            color: const Color.fromARGB(0, 255, 193, 7),
-                            image: DecorationImage(
-                                image: AssetImage("asset/medicine2.png"),
-                                scale: 1)),
+                        height: screenSize.height * 0.2,
+                        width: screenSize.height * 0.2,
+                        decoration: const BoxDecoration(
+                          color: Color.fromARGB(0, 255, 193, 7),
+                          image: DecorationImage(
+                            image: AssetImage("assets/images/medicine.png"),
+                            scale: 1,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
             Positioned(
-              top: 275,
+              top: screenSize.height * 0.33,
               child: Container(
-                height: 600,
-                width: 394,
+                height: screenSize.height * 0.9,
+                width: screenSize.width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(40),
                   color: Colors.white,
@@ -91,13 +91,15 @@ class Home extends StatelessWidget {
                   children: [
                     Container(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
-                      height: 150,
+                      height: screenSize.height * 0.2,
                       width: double.infinity,
                       decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(40),
-                              topRight: Radius.circular(40)),
-                          color: Colors.white),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(40),
+                          topRight: Radius.circular(40),
+                        ),
+                        color: Colors.white,
+                      ),
                       child: TimelineCalendar(
                         calendarType: CalendarType.GREGORIAN,
                         calendarLanguage: "en",
@@ -115,15 +117,11 @@ class Home extends StatelessWidget {
                         headerOptions: HeaderOptions(
                             weekDayStringType: WeekDayStringTypes.SHORT,
                             monthStringType: MonthStringTypes.FULL,
-                            backgroundColor: Color.fromARGB(255, 255, 255, 255),
+                            backgroundColor:
+                                const Color.fromARGB(255, 255, 255, 255),
                             headerTextColor: Colors.black),
-                        onChangeDateTime: (datetime) {
-                          print(datetime.getDate());
-                        },
+                        onChangeDateTime: (datetime) {},
                       ),
-                    ),
-                    SizedBox(
-                      height: 100,
                     ),
                     Column(
                       children: [
@@ -132,19 +130,19 @@ class Home extends StatelessWidget {
                             Container(
                               height: 100,
                               width: 100,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color.fromARGB(0, 255, 255, 255),
                                 image: DecorationImage(
-                                  image: AssetImage("asset/clock-reminder.png"),
+                                  image: AssetImage(
+                                    "assets/images/clock.png",
+                                  ),
                                 ),
                               ),
                             ),
-                            Container(
-                              child: Text(
-                                "No Reminder added",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
+                            const Text(
+                              "No Reminder added",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],

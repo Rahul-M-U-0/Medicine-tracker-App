@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medicine_app/pages/change_password_page.dart';
 import 'package:medicine_app/pages/edit_profile.dart';
+import 'package:medicine_app/pages/loginpage.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -16,8 +17,6 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  void logOut() {}
-
   void editProfile(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(
@@ -28,6 +27,8 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: const Color(0xff04516f),
       appBar: AppBar(
@@ -51,10 +52,10 @@ class ProfilePage extends StatelessWidget {
               height: 20,
             ),
             CircleAvatar(
-              radius: 80,
+              radius: screenSize.width * 0.25,
               backgroundColor: const Color(0xff15c79a),
               child: CircleAvatar(
-                radius: 78,
+                radius: screenSize.width * 0.25 - 2,
                 backgroundImage: AssetImage(profileImage),
               ),
             ),
@@ -126,7 +127,13 @@ class ProfilePage extends StatelessWidget {
                       height: 10,
                     ),
                     InkWell(
-                      onTap: logOut,
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => LoginPage(),
+                          ),
+                        );
+                      },
                       child: const ListTile(
                         leading: Icon(
                           Icons.logout_outlined,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:medicine_app/pages/Bottom%20navigaton/home_page.dart';
+import 'package:medicine_app/pages/loginpage.dart';
 
 class Registration extends StatefulWidget {
   const Registration({super.key});
@@ -15,14 +17,12 @@ class _RegistrationState extends State<Registration> {
   final _password = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xff04516f),
-      ),
       backgroundColor: const Color(0xff04516f),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(18.0),
+          padding: const EdgeInsets.all(30.0),
           child: Form(
             key: _formKey,
             child: SingleChildScrollView(
@@ -30,7 +30,7 @@ class _RegistrationState extends State<Registration> {
                 children: [
                   const Gap(50),
                   CircleAvatar(
-                    radius: 100,
+                    radius: screenSize.width * 0.25,
                     backgroundColor: Colors.white60,
                     child: Image.asset(
                       "assets/images/pillspng.png",
@@ -80,7 +80,7 @@ class _RegistrationState extends State<Registration> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   TextFormField(
@@ -125,7 +125,7 @@ class _RegistrationState extends State<Registration> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   TextFormField(
@@ -171,38 +171,98 @@ class _RegistrationState extends State<Registration> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   SizedBox(
-                    height: 40,
-                    width: 150,
+                    height: 45,
+                    width: 200,
                     child: ElevatedButton(
                       onPressed: () {
-                        // if (_formKey.currentState!.validate()) {
-                        //   // route
-                        //   Navigator.of(context).pushReplacement(
-                        //     MaterialPageRoute(
-                        //       builder: (context) {
-                        //         return const Schedules();
-                        //       },
-                        //     ),
-                        //   );
-                        // } else {}
+                        if (_formKey.currentState!.validate()) {
+                          // route
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return const Home();
+                              },
+                            ),
+                          );
+                        } else {}
                       },
-                      // ignore: sort_child_properties_last
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xff15c79a),
+                      ),
                       child: const Text(
-                        "Sign In",
+                        "Sign Up",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
-                          color: Color(0xff04516f),
+                          color: Colors.white,
                         ),
                       ),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xffffffff)),
                     ),
-                  )
+                  ),
+                  const Gap(15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                          height: 2,
+                          width: screenSize.width * 0.35,
+                          color: Colors.white),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      const Text(
+                        "or",
+                        style: TextStyle(
+                            fontSize: 17,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Container(
+                          height: 2,
+                          width: screenSize.width * 0.35,
+                          color: Colors.white),
+                    ],
+                  ),
+                  const Gap(10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "I already have an account",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 17,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop(
+                            MaterialPageRoute(
+                              builder: (cotext) {
+                                return LoginPage();
+                              },
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          "SignIn",
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ],
               ),
             ),

@@ -23,6 +23,8 @@ class EditProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: const Color(0xff04516f),
       appBar: AppBar(
@@ -47,10 +49,10 @@ class EditProfilePage extends StatelessWidget {
               height: 20,
             ),
             CircleAvatar(
-              radius: 80,
+              radius: screenSize.width * 0.25,
               backgroundColor: const Color(0xff15c79a),
               child: CircleAvatar(
-                radius: 78,
+                radius: screenSize.width * 0.25 - 2,
                 backgroundImage: AssetImage(profileImage),
               ),
             ),

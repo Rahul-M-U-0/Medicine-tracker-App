@@ -33,26 +33,30 @@ class _NumbersdemoState extends State<Numbersdemo> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         IconButton(
-            onPressed: () {
-              setState(() {
-                if (_currentvalue > widget.min) {
-                  _currentvalue -= widget.step;
-                }
-                widget.onchanged(_currentvalue);
-              });
-            },
-            icon: Icon(Icons.remove_circle)),
-        Text(_currentvalue.toString()),
+          onPressed: () {
+            setState(() {
+              if (_currentvalue > widget.min) {
+                _currentvalue -= widget.step;
+              }
+              widget.onchanged(_currentvalue);
+            });
+          },
+          icon: const Icon(Icons.remove_circle),
+        ),
+        Text(
+          _currentvalue.toString(),
+        ),
         IconButton(
-            onPressed: () {
-              setState(() {
-                if (_currentvalue < widget.max) {
-                  _currentvalue += widget.step;
-                }
-                widget.onchanged(_currentvalue);
-              });
-            },
-            icon: Icon(Icons.add_circle))
+          onPressed: () {
+            setState(() {
+              if (_currentvalue < widget.max) {
+                _currentvalue += widget.step;
+              }
+              widget.onchanged(_currentvalue);
+            });
+          },
+          icon: const Icon(Icons.add_circle),
+        ),
       ],
     );
   }

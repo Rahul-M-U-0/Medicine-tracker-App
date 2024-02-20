@@ -18,6 +18,7 @@ class ChangePasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color(0xff04516f),
       appBar: AppBar(
@@ -40,10 +41,10 @@ class ChangePasswordPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const CircleAvatar(
-              radius: 97,
+            CircleAvatar(
+              radius: screenSize.width * 0.25,
               backgroundColor: Colors.white60,
-              backgroundImage: AssetImage('assets/images/pillspng.png'),
+              backgroundImage: const AssetImage('assets/images/pillspng.png'),
             ),
             const SizedBox(
               height: 40,
@@ -70,7 +71,7 @@ class ChangePasswordPage extends StatelessWidget {
                         flag: true,
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 40,
                       ),
                       SizedBox(
                         height: 45,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medicine_app/components/numbers_demo.dart';
 import 'package:medicine_app/constants/Colorcode.dart';
-
-import 'package:medicine_app/pages/Bottom%20navigaton/Medication/NumbersDemo.dart';
 
 class AddDosage extends StatefulWidget {
   const AddDosage({super.key});

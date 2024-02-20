@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:medicine_app/pages/get_started_page.dart';
-import 'package:medicine_app/pages/loginpage.dart';
 
 class SplashWidget extends StatefulWidget {
   const SplashWidget({super.key});
@@ -22,7 +21,8 @@ class _SplashWidgetState extends State<SplashWidget> {
 
   void splash() {
     Timer(const Duration(seconds: 2), () {
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+      Navigator.of(context)
+          .pushReplacement(MaterialPageRoute(builder: (context) {
         return const GetStartedPage();
       }));
     });
@@ -30,6 +30,7 @@ class _SplashWidgetState extends State<SplashWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color(0xff04516f),
       body: Column(
@@ -38,7 +39,7 @@ class _SplashWidgetState extends State<SplashWidget> {
           Center(
             child: CircleAvatar(
               backgroundColor: Colors.white70,
-              radius: 100,
+              radius: screenSize.width * 0.3,
               child: SizedBox(child: Image.asset('assets/images/pillspng.png')),
             ),
           ),
@@ -49,7 +50,7 @@ class _SplashWidgetState extends State<SplashWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 350.0,
+                width: screenSize.width * 0.9,
                 child: DefaultTextStyle(
                   textAlign: TextAlign.center,
                   style: const TextStyle(
@@ -62,9 +63,7 @@ class _SplashWidgetState extends State<SplashWidget> {
                     animatedTexts: [
                       TypewriterAnimatedText('              Medicine Tracker'),
                     ],
-                    onTap: () {
-                      print("Tap Event");
-                    },
+                    onTap: () {},
                   ),
                 ),
               ),

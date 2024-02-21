@@ -235,7 +235,7 @@ class _RegistrationState extends State<Registration> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        "I already have an account",
+                        "I already have an account?",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,

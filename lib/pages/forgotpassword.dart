@@ -88,7 +88,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               TextButton(
                 onPressed: () {
                   Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
+                      .pop(MaterialPageRoute(builder: (context) {
                     return LoginPage();
                   }));
                 },

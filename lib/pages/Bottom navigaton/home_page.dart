@@ -105,7 +105,6 @@ class Home extends StatelessWidget {
                         calendarLanguage: "en",
                         calendarOptions: CalendarOptions(
                           viewType: ViewType.DAILY,
-                          toggleViewType: true,
                           headerMonthElevation: 0,
                           headerMonthShadowColor: Colors.black26,
                           headerMonthBackColor: Colors.transparent,

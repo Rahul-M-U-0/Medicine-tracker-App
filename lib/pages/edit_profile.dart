@@ -25,95 +25,97 @@ class EditProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
 
-    return Scaffold(
-      backgroundColor: const Color(0xff04516f),
-      appBar: AppBar(
+    return SafeArea(
+      child: Scaffold(
         backgroundColor: const Color(0xff04516f),
-        title: const Text(
-          'Edit Profile',
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            color: Color(0xffffffff),
+        appBar: AppBar(
+          backgroundColor: const Color(0xff04516f),
+          title: const Text(
+            'Edit Profile',
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+              color: Color(0xffffffff),
+            ),
           ),
-        ),
-        centerTitle: true,
+          centerTitle: true,
 
-        // automaticallyImplyLeading: false,
-      ),
-      body: SizedBox(
-        width: double.infinity,
-        height: double.infinity,
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            CircleAvatar(
-              radius: screenSize.width * 0.25,
-              backgroundColor: const Color(0xff15c79a),
-              child: CircleAvatar(
-                radius: screenSize.width * 0.25 - 2,
-                backgroundImage: AssetImage(profileImage),
+          // automaticallyImplyLeading: false,
+        ),
+        body: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 20,
               ),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 30,
+              CircleAvatar(
+                radius: screenSize.width * 0.25,
+                backgroundColor: const Color(0xff15c79a),
+                child: CircleAvatar(
+                  radius: screenSize.width * 0.25 - 2,
+                  backgroundImage: AssetImage(profileImage),
                 ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      InputFields(
-                        inputController: nameController,
-                        hintTxt: 'Full Name',
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      InputFields(
-                        inputController: phoneNumberController,
-                        hintTxt: 'Phone Number',
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      InputFields(
-                        inputController: emailIDController,
-                        hintTxt: 'Email ID',
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      SizedBox(
-                        height: 45,
-                        width: 200,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            submitProfile(context);
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xff15c79a),
-                          ),
-                          child: const Text(
-                            'Submit',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xffffffff),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 30,
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        InputFields(
+                          inputController: nameController,
+                          hintTxt: 'Full Name',
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        InputFields(
+                          inputController: phoneNumberController,
+                          hintTxt: 'Phone Number',
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        InputFields(
+                          inputController: emailIDController,
+                          hintTxt: 'Email ID',
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        SizedBox(
+                          height: 45,
+                          width: 200,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              submitProfile(context);
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xff15c79a),
+                            ),
+                            child: const Text(
+                              'Submit',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xffffffff),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

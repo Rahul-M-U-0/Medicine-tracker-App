@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medicine_app/dummy_data/medicines.dart';
 import 'package:medicine_app/pages/add_medicine_page.dart';
 import 'package:medicine_app/pages/schedule.dart';
 
@@ -15,14 +16,16 @@ class _MedicationState extends State<Medication> {
   @override
   Widget build(BuildContext context) {
     setState(() {
-      flag = true;
+      flag = medicines.isEmpty;
     });
-    return Scaffold(
-      body: flag
-          ? const AddMedicine(
-              decription: 'Add Medicine',
-            )
-          : const Schedules(),
+    return SafeArea(
+      child: Scaffold(
+        body: flag
+            ? const AddMedicine(
+                decription: 'Add Medicine',
+              )
+            : const Schedules(),
+      ),
     );
   }
 }

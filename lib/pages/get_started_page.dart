@@ -51,87 +51,91 @@ class _GetStartedPageState extends State<GetStartedPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Align(
-            alignment: Alignment.topCenter,
-            child: SizedBox(
-              height: double.infinity,
-              child: PageView.builder(
-                controller: _pageController,
-                onPageChanged: (int page) {
-                  setState(() {
-                    _activePage = page;
-                  });
-                },
-                itemCount: pages.length,
-                itemBuilder: (context, index) {
-                  return pages[index];
-                },
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          children: [
+            Align(
+              alignment: Alignment.topCenter,
+              child: SizedBox(
+                height: double.infinity,
+                child: PageView.builder(
+                  controller: _pageController,
+                  onPageChanged: (int page) {
+                    setState(() {
+                      _activePage = page;
+                    });
+                  },
+                  itemCount: pages.length,
+                  itemBuilder: (context, index) {
+                    return pages[index];
+                  },
+                ),
               ),
             ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List<Widget>.generate(
-                    pages.length,
-                    (index) => Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: CircleAvatar(
-                        radius: 5,
-                        backgroundColor: _activePage == index
-                            ? const Color(0xff15c79a)
-                            : Colors.grey.shade300,
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List<Widget>.generate(
+                      pages.length,
+                      (index) => Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: CircleAvatar(
+                          radius: 5,
+                          backgroundColor: _activePage == index
+                              ? const Color(0xff15c79a)
+                              : Colors.grey.shade300,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 70,
-                ),
-                SizedBox(
-                  height: 45,
-                  width: 200,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (_activePage == pages.length - 1) {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                            builder: (context) => LoginPage(),
-                          ),
+                  const SizedBox(
+                    height: 70,
+                  ),
+                  SizedBox(
+                    height: 45,
+                    width: 200,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_activePage == pages.length - 1) {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => LoginPage(),
+                            ),
+                          );
+                        }
+                        _pageController.nextPage(
+                          duration: const Duration(milliseconds: 800),
+                          curve: Curves.easeInOutQuart,
                         );
-                      }
-                      _pageController.nextPage(
-                        duration: const Duration(milliseconds: 800),
-                        curve: Curves.easeInOutQuart,
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xff15c79a),
-                    ),
-                    child: Text(
-                      _activePage == pages.length - 1 ? 'Get started' : 'Next',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xff15c79a),
+                      ),
+                      child: Text(
+                        _activePage == pages.length - 1
+                            ? 'Get started'
+                            : 'Next',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 150,
-                ),
-              ],
+                  const SizedBox(
+                    height: 100,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:medicine_app/pages/get_started_page.dart';
+import 'package:medicine_app/pages/user/get_started_page.dart';
 
 class SplashWidget extends StatefulWidget {
   const SplashWidget({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicine_app/components/input-fields.dart';
-import 'package:medicine_app/pages/Bottom%20navigaton/profile_page.dart';
+import 'package:medicine_app/pages/user/user%20bnb/user_profile_page.dart';
 
 class EditProfilePage extends StatelessWidget {
   EditProfilePage({
@@ -16,7 +16,7 @@ class EditProfilePage extends StatelessWidget {
   void submitProfile(BuildContext context) {
     Navigator.of(context).pop(
       MaterialPageRoute(
-        builder: (context) => const ProfilePage(),
+        builder: (context) => ProfilePage(),
       ),
     );
   }

@@ -43,6 +43,7 @@ dependencies:
   time_pickerr: ^1.0.6
   intl: ^0.19.0
   flutter_slidable: ^3.0.1
+  fluid_bottom_nav_bar: ^1.4.0
 
 dev_dependencies:
   flutter_test:

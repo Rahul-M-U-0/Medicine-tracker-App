@@ -1,45 +1,25 @@
+import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:circular_bottom_navigation/tab_item.dart';
 import 'package:flutter/material.dart';
-import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:medicine_app/pages/Bottom%20navigaton/home_page.dart';
-import 'package:medicine_app/pages/Bottom%20navigaton/medication.dart';
-import 'package:medicine_app/pages/Bottom%20navigaton/profile_page.dart';
-import 'package:medicine_app/pages/Bottom%20navigaton/store_page.dart';
+import 'package:medicine_app/pages/doctor/doctor_chatpage.dart';
+import 'package:medicine_app/pages/doctor/doctor_profilepage.dart';
 
-class BottomNavi extends StatefulWidget {
-  const BottomNavi({super.key});
+class DoctorBottomNavi extends StatefulWidget {
+  const DoctorBottomNavi({super.key});
 
   @override
-  State<BottomNavi> createState() => _BottomNaviState();
+  State<DoctorBottomNavi> createState() => _DoctorBottomNaviState();
 }
 
-class _BottomNaviState extends State<BottomNavi> {
+class _DoctorBottomNaviState extends State<DoctorBottomNavi> {
   int selectedPos = 0;
 
   double bottomNavBarHeight = 60;
-
   List<TabItem> tabItems = List.of(
     [
       TabItem(
-        Icons.home,
-        "Home",
-        const Color(0xff04516f),
-        labelStyle: const TextStyle(
-          fontWeight: FontWeight.normal,
-        ),
-      ),
-      TabItem(
-        FontAwesomeIcons.pills,
-        "Medications",
-        const Color(0xff04516f),
-        labelStyle: const TextStyle(
-          fontWeight: FontWeight.normal,
-        ),
-      ),
-      TabItem(
-        Icons.store_sharp,
-        "Store",
+        Icons.chat,
+        "Chat",
         const Color(0xff04516f),
         labelStyle: const TextStyle(
           fontWeight: FontWeight.normal,
@@ -58,11 +38,10 @@ class _BottomNaviState extends State<BottomNavi> {
 
   late CircularBottomNavigationController _navigationController;
   final List<Widget> _pages = [
-    const Home(),
-    const Medication(),
-    const StorePage(),
-    const ProfilePage(),
+    const DoctorChatPage(),
+    DoctorProfilePage(),
   ];
+
   @override
   void initState() {
     super.initState();
@@ -79,7 +58,10 @@ class _BottomNaviState extends State<BottomNavi> {
               padding: EdgeInsets.only(bottom: bottomNavBarHeight),
               child: _pages[selectedPos],
             ),
-            Align(alignment: Alignment.bottomCenter, child: bottomNav())
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: bottomNav(),
+            ),
           ],
         ),
       ),

@@ -3,7 +3,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_timeline_calendar/timeline/flutter_timeline_calendar.dart';
 import 'package:medicine_app/constants/Colorcode.dart';
 import 'package:medicine_app/dummy_data/medicines.dart';
-import 'package:medicine_app/pages/add_medicine_page.dart';
+import 'package:medicine_app/pages/user/add_medicine_page.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

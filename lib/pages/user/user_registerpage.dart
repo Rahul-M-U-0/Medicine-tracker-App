@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:medicine_app/pages/Bottom%20navigaton/home_page.dart';
-import 'package:medicine_app/pages/loginpage.dart';
+import 'package:medicine_app/pages/user/user%20bnb/user_bottomnavi.dart';
 
-class Registration extends StatefulWidget {
-  const Registration({super.key});
+class UserRegistration extends StatefulWidget {
+  const UserRegistration({super.key});
 
   @override
-  State<Registration> createState() => _RegistrationState();
+  State<UserRegistration> createState() => _UserRegistrationState();
 }
 
-class _RegistrationState extends State<Registration> {
+class _UserRegistrationState extends State<UserRegistration> {
   final _formKey = GlobalKey<FormState>();
   final _username = TextEditingController();
   final _email = TextEditingController();
@@ -21,21 +20,44 @@ class _RegistrationState extends State<Registration> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xff04516f),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(Icons.arrow_back_ios),
+            color: Colors.white,
+          ),
+          title: const Text(
+            'Register',
+            style: TextStyle(color: Colors.white),
+          ),
+          centerTitle: true,
+          backgroundColor: const Color(0xff04516f),
+        ),
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Form(
               key: _formKey,
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircleAvatar(
-                      radius: screenSize.width * 0.25,
-                      backgroundColor: Colors.white60,
-                      child: Image.asset(
-                        "assets/images/pillspng.png",
-                        fit: BoxFit.cover,
+                    Container(
+                      height: 150,
+                      width: 150,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(100),
+                        ),
+                        color: Colors.white10,
+                      ),
+                      child: const Icon(
+                        Icons.person,
+                        size: 80,
+                        color: Colors.white,
                       ),
                     ),
                     const Gap(50),
@@ -185,11 +207,11 @@ class _RegistrationState extends State<Registration> {
                             Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return const Home();
+                                  return const UserBottomNavi();
                                 },
                               ),
                             );
-                          } else {}
+                          }
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xff15c79a),
@@ -245,13 +267,7 @@ class _RegistrationState extends State<Registration> {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.of(context).pop(
-                              MaterialPageRoute(
-                                builder: (cotext) {
-                                  return LoginPage();
-                                },
-                              ),
-                            );
+                            Navigator.of(context).pop();
                           },
                           child: const Text(
                             "SignIn",

@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:medicine_app/components/input-fields.dart';
-import 'package:medicine_app/pages/Bottom%20navigaton/bnb.dart';
-import 'package:medicine_app/pages/forgotpassword.dart';
-import 'package:medicine_app/pages/registerPage.dart';
+import 'package:medicine_app/pages/user/get_started_page.dart';
+import 'package:medicine_app/pages/user/user%20bnb/user_bottomnavi.dart';
+import 'package:medicine_app/pages/user/forgotpassword.dart';
+import 'package:medicine_app/pages/user/user_registerpage.dart';
 
-class LoginPage extends StatelessWidget {
+class UserLoginPage extends StatelessWidget {
   final _formkey = GlobalKey<FormState>();
 
   final usercontroller = TextEditingController();
   final passcontroller = TextEditingController();
 
-  LoginPage({super.key});
+  UserLoginPage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +22,26 @@ class LoginPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xff04516f),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => const GetStartedPage(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.arrow_back_ios),
+            color: Colors.white,
+          ),
+          title: const Text(
+            'LogIn As User',
+            style: TextStyle(color: Colors.white),
+          ),
+          centerTitle: true,
+          backgroundColor: const Color(0xff04516f),
+        ),
         body: Form(
           key: _formkey,
           child: SafeArea(
@@ -28,19 +51,15 @@ class LoginPage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Gap(50),
                     CircleAvatar(
                       radius: screenSize.width * 0.25,
-                      // color: Colors.blue,
-                      backgroundColor: Colors.white60,
-                      child: Image.asset(
-                        "assets/images/pillspng.png",
-                        fit: BoxFit.cover,
-                      ),
+                      backgroundImage:
+                          const AssetImage('assets/images/user.webp'),
+                      backgroundColor: const Color(0xff04516f),
                     ),
                     const Gap(50),
                     InputFields(
-                        inputController: usercontroller, hintTxt: 'user name'),
+                        inputController: usercontroller, hintTxt: 'Email'),
                     const Gap(20),
                     InputFields(
                         inputController: passcontroller, hintTxt: 'password'),
@@ -78,14 +97,14 @@ class LoginPage extends StatelessWidget {
                             Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                 builder: (cotext) {
-                                  return const BottomNavi();
+                                  return const UserBottomNavi();
                                 },
                               ),
                             );
                           }
                         },
                         child: const Text(
-                          "Login",
+                          'LogIn',
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white,
@@ -137,7 +156,7 @@ class LoginPage extends StatelessWidget {
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (cotext) {
-                                  return const Registration();
+                                  return const UserRegistration();
                                 },
                               ),
                             );

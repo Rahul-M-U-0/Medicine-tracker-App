@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medicine_app/pages/splashScreen.dart';
+import 'package:medicine_app/pages/user/splashScreen.dart';
 
 void main() {
   runApp(const MyApp());

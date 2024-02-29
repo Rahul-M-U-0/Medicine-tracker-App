@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:medicine_app/constants/Colorcode.dart';
-import 'package:medicine_app/pages/loginpage.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -88,10 +87,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context)
-                        .pop(MaterialPageRoute(builder: (context) {
-                      return LoginPage();
-                    }));
+                    Navigator.of(context).pop();
                   },
                   child: const Text(
                     "Back to sign in",

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:medicine_app/components/add_dossage.dart';
-import 'package:medicine_app/pages/schedule.dart';
+import 'package:medicine_app/pages/user/schedule.dart';
 
 import 'package:medicine_app/constants/Colorcode.dart';
 import 'package:dropdown_search/dropdown_search.dart';
@@ -38,39 +38,20 @@ class _AddMedicineState extends State<AddMedicine> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
-
     return SafeArea(
       child: Scaffold(
           backgroundColor: bgcolor,
           appBar: AppBar(
             backgroundColor: const Color(0xff04516f),
             automaticallyImplyLeading: widget.leadback,
-            title: Row(
-              children: [
-                const SizedBox(
-                  width: 10,
-                ),
-                CircleAvatar(
-                  radius: 22,
-                  backgroundColor: Colors.white60,
-                  child: Image.asset(
-                    "assets/images/pillspng.png",
-                    scale: 10,
-                  ),
-                ),
-                SizedBox(
-                  width: screenSize.width * 0.25,
-                ),
-                const Text(
-                  "Capsule",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: textcolor,
-                  ),
-                ),
-              ],
+            title: const Text(
+              "Capsule",
+              style: TextStyle(
+                fontSize: 20,
+                color: textcolor,
+              ),
             ),
+            centerTitle: true,
           ),
           body: SingleChildScrollView(
             child: Padding(
@@ -111,41 +92,44 @@ class _AddMedicineState extends State<AddMedicine> {
                         },
                         children: [
                           ExpansionPanel(
-                              isExpanded: _isExpanded,
-                              headerBuilder:
-                                  (BuildContext context, bool isExpanded) {
-                                return const ListTile(
-                                  //tileColor: Colors.amber,
-                                  title: Text(
-                                    "Medication",
-                                    style: TextStyle(color: textcolor),
-                                  ),
-                                );
-                              },
-                              body: Container(
-                                decoration: const BoxDecoration(
-                                    color: Colors.transparent),
-                                padding: const EdgeInsets.all(10),
-                                child: Column(
-                                  children: [
-                                    TextFormField(
-                                      decoration: const InputDecoration(
-                                          labelText: "Medicine Name",
-                                          labelStyle:
-                                              TextStyle(color: textcolor)),
-                                    ),
-                                    const SizedBox(
-                                      height: 18,
-                                    ),
-                                    TextFormField(
-                                      decoration: const InputDecoration(
-                                          labelText: "Description",
-                                          labelStyle:
-                                              TextStyle(color: textcolor)),
-                                    ),
-                                  ],
+                            isExpanded: _isExpanded,
+                            headerBuilder:
+                                (BuildContext context, bool isExpanded) {
+                              return const ListTile(
+                                //tileColor: Colors.amber,
+                                title: Text(
+                                  "Medication",
+                                  style: TextStyle(color: textcolor),
                                 ),
-                              ))
+                              );
+                            },
+                            body: Container(
+                              decoration: const BoxDecoration(
+                                  color: Colors.transparent),
+                              padding: const EdgeInsets.all(10),
+                              child: Column(
+                                children: [
+                                  TextFormField(
+                                    style: const TextStyle(color: Colors.white),
+                                    decoration: const InputDecoration(
+                                        labelText: "Medicine Name",
+                                        labelStyle:
+                                            TextStyle(color: textcolor)),
+                                  ),
+                                  const SizedBox(
+                                    height: 18,
+                                  ),
+                                  TextFormField(
+                                    style: const TextStyle(color: Colors.white),
+                                    decoration: const InputDecoration(
+                                        labelText: "Description",
+                                        labelStyle:
+                                            TextStyle(color: textcolor)),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
